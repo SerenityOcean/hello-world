@@ -1,0 +1,159 @@
+/* styles.css */
+
+/* 全局样式 */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #49c9b3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* TodoApp 容器 */
+.todo-app {
+  background: #30a1da;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.todo-app h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* TodoInput 样式 */
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.todo-input input:focus {
+  border-color: #007bff;
+}
+
+.todo-input button {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #007bff, #00c4ff);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.todo-input button:hover {
+  transform: scale(1.05);
+}
+
+.todo-input button:active {
+  transform: scale(0.95);
+}
+
+/* TodoList 样式 */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* TodoItem 样式 */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  animation: slideIn 0.3s ease forwards;
+}
+
+/* 添加时的滑入动画 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 完成状态样式 */
+.todo-item span {
+  flex: 1;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* 按钮样式 */
+.todo-item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.todo-item button:hover {
+  transform: scale(1.1);
+}
+
+.todo-item button:active {
+  transform: scale(0.9);
+}
+
+.todo-item .toggle-btn {
+  background: #28a745;
+  color: white;
+}
+
+.todo-item .delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+/* 删除时的淡出动画 */
+.todo-item-exit {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
